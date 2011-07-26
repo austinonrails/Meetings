@@ -1,3 +1,154 @@
-Slides from talks at past Austin on Rails meetings.
+# Slides from talks at past Austin on Rails meetings.
+# 
+# If you've spoken previously, please upload your slides! Please use the format YEAR-MONTH-PRESENTATION_TITLE
+# (You should already have push access, but message us if you don't)
 
-If you've spoken previously, please upload your slides! (You should already have push access, but message us if you don't)
+MISSING PRESENTATIONS- 2009-present
+2011-07- Rails Application Security - Anthony Lewis
+2011-06- Forms, FormBuilders, Helpers, and Tags - Scott Bellware
+2011-06- Formtastic! - Keith Gaddis
+2011-04- Make Rails Pretty - Adam Michela and Dave Rupert
+2011-02- Refactoring WTF into OMG — Strategies for success - Keith Gaddis
+2011-01- Writing Video Games in Ruby with Gosu - Mason and Garrett Hale
+2010-11- Arduino for Rubyists - Erik DeBill
+2010-11- The Rails Box is Awesome, But It Has Corners - Jeffrey Taylor
+2010-10- Bundler: The Easy, The Hard, and the NP-Complete - Chris Continanza
+2010-10- Build an iPhone app with a Rails server - Rich Boldway & Andrew Duhan
+2010-08- Rails' Next Top Model: Using ActiveModel and ActiveRelation - Adam Keys
+2010-08- Database Anti-Patterns - Xavier Shay
+2010-05- Rails 3 Overview / Merb to Rails 3- John Critz
+2010-05- Setting up a Rails 3 app on Dreamhost- Skip Baney
+2010-04- Rails 3.0 Email- Richard Schneeman
+2010-04- Cassandra- Stu Hood
+2010-03- TestJour- Ethan Waldo
+2010-03- CSS Metaframeworks- Wynn Netherland
+2010-01- Scalable Ruby Processing with EventMachine - Mike Perham
+2009-05- Wukong and Hadoop - mp3 link dead
+
+AoR ARCHIVE RECORD:
+2011-02-
+Test-Driving Javascript with Jasmine - Tim Tyrrell (slides)
+
+2011-01- 
+Prank Call Your Friends with Ruby - Mattt Thompson (slides)
+
+2010-07
+I18n and L10n on Rails 3- Mattt Thompson (source, slides, slideshare)
+https://github.com/mattt/Rails-I18n-Example
+slideshare- http://www.slideshare.net/matttthompson/i18n-and-l10n-with-rails-3
+
+JRuby and Rails on Google App Engine- Amy Unruh (slides)
+
+2010-06
+
+Debugging Ruby with ruby-debug- Nola Stowe
+mp3- http://austinonrails.org/files/Nola-Stowe-Ruby-Debug.mp3
+
+Railsconf Recap for AoR- Keith Gaddis
+mp3- http://austinonrails.org/files/Keith-Gaddis-RailsConf-2010.mp3
+
+2010-05
+
+Rails 3 Overview / From Merb to Rails 3 by Rob Mack & John Critz (mp3)
+mp3- http://austinonrails.org/files/rob-mack-and-john-critz-rails3-gowalla.mp3
+
+Deploying Rails 3 to Dreamhost by Skip Baney (mp3)
+mp3- http://austinonrails.org/files/skip-baney-rails3-on-dreamhost.mp3
+
+2009-10
+
+MongoDB by Wynn Netherland (slideshare, mp3)
+slideshare- http://www.slideshare.net/pengwynn/hands-on-with-ruby-mongodb
+mp3- http://austinonrails.org/files/wynn-netherland-mongodb-20091027.mp3
+
+MacRuby by Sam Griffith (slides, mp3)
+mp3- http://austinonrails.org/files/sam-griffith-jr-macruby-20091027.mp3
+
+
+2009-09
+
+Authlogic & Auth Helpers by Allen Walker (slides, mp3)
+http://austinonrails.org/files/allen-walker-authlogic-20090922.mp3
+
+Sinatra Extensions & Heroku Deployment by Blake Mizerany (mp3)
+http://austinonrails.org/files/blake-mizerany-sinatra-extensions-20090922.mp3
+
+2009-06
+
+Cucumber/Git Workflow by Matt Buck (slides, mp3)
+slides- http://www.slideshare.net/techpeace/how-i-roll-a-cucumbergit-workflow
+mp3- http://austinonrails.org/files/How_I_Roll_A_Cucumber_git_Workflow.mp3
+
+2009-05
+
+Using Cucumber with Rails by Nicholas Cancelliere (slides,mp3)
+mp3- http://austinonrails.org/files/nicholas-cucumber-rails.mp3
+
+Processing Large Datasets with Ruby and Hadoop by Flip from InfoChimps
+links- 	
+    1.	http://googleblog.blogspot.com/2008/11/sorting-1pb-with-mapreduce.html
+	2.	http://www.trendingtopics.org/about
+	3.	http://github.com/mrflip/wukong – “makes Hadoop so easy a chimpanzee can use it”
+	4.	http://hadoop.apache.org/core
+
+Railsconf 2009 (slides, video, mp3)
+
+video- http://blip.tv/railsconf
+slides- http://en.oreilly.com/rails2009/public/schedule/proceedings
+AoR recap mp3- http://austinonrails.org/files/railsconf-2009-recap.mp3
+
+2009-04
+
+ExtJS and Rails, Sittin’ In A Tree by Ross Andrews (google doc, must request access)
+request access- http://docs.google.com/Presentation?id=dcmvmxsh_84n9vwpgf2&invite=100829902
+
+Background Processing in Ruby on Rails by Rob Mack (slideshare)
+slideshare- http://www.slideshare.net/robmack/background-processing-in-ruby-on-rails
+
+2009-03
+
+Caching, Memcached, and Rails by Mike Perham (slideshare, mp3, wrapup)
+http://www.slideshare.net/guestac752c/caching-memcached-and-rails
+mp3- http://www.austinonrails.org/files/aor-2009-03-24-mike-rails-perf.mp3
+wrapup- http://www.mikeperham.com/2009/03/25/caching-and-rails/
+
+Building TweetReach with Sinatra, Tokyo Cabinet and Grackle by Hayes Davis (slideshare, mp3, wrapup)
+http://www.slideshare.net/hayesdavis/building-tweetreach-with-sinatra-tokyo-cabinet-and-grackle-austin-on-rails-20090324
+mp3- http://www.austinonrails.org/files/aor-2009-03-24-hayes-tokyo.mp3
+wrapup- http://hayesdavis.net/2009/03/25/austin-on-rails-talk-building-tweetreach-with-sinatra-tokyo-cabinet-and-grackle/
+
+2008-11
+
+Patterns in Distributed Processing by Mike Perham (mp3)
+http://austinonrails.org/files/Mike_Perham_AOR_10-28-2008.mp3
+Open Mic (mp3)
+http://austinonrails.org/files/Open_Mic_AOR_10-28-2008.mp3
+
+2008-09
+
+OtherInbox by Joshua Baer (slides, video, mp3)
+http://www.ustream.tv/recorded/698550
+http://austinonrails.org/files/otherinbox_aor_9-23-08.mp3
+
+Building an App with Facebooker by Jake Varghese (mp3)
+http://austinonrails.org/files/facebooker_aor_9-23-08.mp3
+
+XMPP in Ruby by Brian Dainton (slideshare, mp3, github)
+http://www.slideshare.net/bdainton/a-change-in-protocol-exploring-xmpp-in-ruby-presentation#
+http://austinonrails.org/files/rubyxmpp_aor_9-23-08.mp3
+https://github.com/bdainton/xmpp_talk
+
+2008-06
+Client-Side Performance in Rails by Eric Falcao (slideshare)
+http://www.slideshare.net/efalcao/client-side-measurement-performance-with-rails
+
+2008-01
+Ruby Tooling in Netbeans by Gregg Sporar (slides)
+
+2007-11
+#SLIDES NOT AVAILABLE
+Rob Mack's Performance Tuning Your Rails App
+Rein Henrichs' REST and Rails: Web Services for the Rails World
+
+AoR Photos- http://www.flickr.com/photos/austin_on_rails/
+

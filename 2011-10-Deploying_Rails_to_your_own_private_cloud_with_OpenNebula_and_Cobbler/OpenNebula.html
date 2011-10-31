@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-US">
+<head>
+<meta name="generator" content=
+"AustinOnRails OpenNebula Presentation" />
+<title>Austin on Rails OpenNebula Presentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="copyright" content=
+"Copyright &#169; 2011 Ethan Waldo" />
+<meta name="duration" content="5" />
+<meta name="font-size-adjustment" content="" />
+<link rel="stylesheet" href="styles/slidy.css" type="text/css" />
+<link rel="stylesheet" href="styles/w3c-blue.css" type="text/css" />
+<script src="scripts/slidy.js" charset="utf-8" type="text/javascript">
+</script>
+</head>
+<body>
+<div class="background"><img alt="" id="head-icon"
+src="graphics/icon-blue.png" /><object id="head-logo"
+data="" type="image/svg+xml"
+title="W3C logo"><a href="http://www.w3.org/"><img
+alt="W3C logo" id="head-logo-fallback"
+src="graphics/w3c-logo-white.gif" /></a></object></div>
+
+<div class="background slanty">
+</div>
+<div class="slide cover title">
+  <!-- hidden style graphics to ensure they are saved with other content -->
+  <img class="hidden" src="graphics/bullet.png" alt="" />
+  <img class="hidden" src="graphics/fold.gif" alt="" />
+  <img class="hidden" src="graphics/unfold.gif" alt="" />
+  <img class="hidden" src="graphics/fold-dim.gif" alt="" />
+  <img class="hidden" src="graphics/nofold-dim.gif" alt="" />
+  <img class="hidden" src="graphics/unfold-dim.gif" alt="" />
+  <img class="hidden" src="graphics/bullet-fold.gif" alt="" />
+  <img class="hidden" src="graphics/bullet-unfold.gif" alt="" />
+  <img class="hidden" src="graphics/bullet-fold-dim.gif" alt="" />
+  <img class="hidden" src="graphics/bullet-nofold-dim.gif" alt="" />
+  <img class="hidden" src="graphics/bullet-unfold-dim.gif" alt="" />
+
+<h1>Austin on Rails: Deploying Rails to your own private cloud with OpenNebula and Cobbler</h1>
+
+<p><a href="">Ethan Waldo</a>
+&lt;<a href="mailto:ewaldo@healthetechs.com">ewaldo@healthetechs.com</a>&gt;<br />
+<br />
+@EthanWaldo
+<br />
+<br />
+</p>
+</div>
+
+<div class="slide">
+<h1>The way things were...</h1>
+
+<ul class="incremental">
+<li class="non-incremental">
+	Everybody owned or rented their own hardware<br/>
+	<ul class="incremental" style="position: relative">
+		<li style="list-style: none;">
+			<img src="graphics/Server-Rack.jpg" alt="face" 
+   				style="position: static; vertical-align: bottom"/>
+		</li>
+		<li style="list-style: none;"> 
+			<img src="graphics/gameplay-dm-nyc.jpg" alt="eyes" 
+				style="position: absolute; top: 0; left: 0; padding-right: 300px; padding-bottom: 40px; background-color: white;" />
+			<div style="position: static; vertical-align: bottom"><font size="+2">Nah, more like this</font></div>
+		</li>
+	</ul>
+</li>
+<li>Co-located hosting for a premium</li>
+<li>Shared hosting for the masses
+	<ul class="incremental">
+		<li>CPanel anybody?<br/><img src="graphics/800px-CPanel_screenshot.png"></li>
+	</ul>
+</li>
+</ul>
+
+<p class="copyright"><a rel="Copyright" href="" shape="rect">Copyright</a> &copy; 2011 <a href="/"><acronym title=
+"Ethan Waldo">Ethan Waldo</acronym></a>, All Rights Reserved.</p>
+</div>
+
+<div class="slide">
+	<h1>Why people hated it</h1>
+
+	<ul class="incremental">
+		<li class="non-incremental">Hardware ages
+			<ul class="incremental">
+				<li>How the fsck was this thing installed 3 years go?</li>
+				<li>Our business just went under after <b>THE</b> server failed</li>
+				<li>That was maintained by THIS guy<br/><img src="graphics/sysadmin.jpg" width="480" height="365"></li>
+			</ul>
+		</li>
+		<li>Many places had crap support
+			<ul class="incremental">
+				<li>Remember OnRamp 10 years ago?</li>
+				<li>What do you mean it's going to be 4 hours before somebody can get around to hitting the power button on my server?</li>
+				<li>WHAT DO YOU MEAN NO BACKUP!?!?!?</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+<div class="slide">
+	<h1>Fast-forward</h1>
+	<ul class="incremental">
+		<li class="non-incremental">People serving assets and other static cached content on Akamai across geographically dispersed regions</li>
+		<li>Virtualization starts to emerge</li>
+		<li>Amazon EC2 starts to kick off</li>
+		<li>Other cloud providers follow</li>
+		<li>
+			Rails gaining ground and companies can scale horizontally with almost no capital outlay as well has have entire systems geographically dispersed
+			<ul class="incremental">
+				<li>PROFIT!!!<br/><img src="graphics/google-adsense-more-money-tips.jpg"></li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+<div class="slide">
+	<h1>Present Day</h1>
+
+	<ul class="incremental">
+		<li class="non-incremental">
+			What is the cloud, really?
+			<ul class="incremental">
+				<li>System Automation</li>
+				<li>Geographically dispersed systems</li>
+			</ul>
+		</li>
+		<li>
+			What happens when what you want is outside the box?
+			<ul class="incremental">
+				<li>What do you mean all my servers are only in Chicago?  I thought this was the cloud!?!</li>
+				<li>Yes I would like fries with that but I'm surprised I had to ask you if they were included in the happy meal.</li>
+				<li>SLA not acceptable</li>
+			</ul>
+		<li>
+			What does the box really get you?  Do you even know?
+			<ul class="incremental">
+				<li>AMD? Opteron or Phenom?</li>
+				<li>Intel? Xeon or Core i#?</li>
+				<li>2.0Ghz?</li>
+				<li>3.0Ghz??</li>
+				<li>An actual core or a virtual core?</li>
+				<li>How is my load being shared with others?</li>
+				<li>SCSI, SATA, SAS, Fibrechannel, Infiniband?</li>
+				<li>3.0Gbps?  4.0gbps?  6.0Gbps?  8.0Gbps?  20.0Gbps?</li>
+				<li>5400rpm, 7200rpm, 10k rpm, 15k rpm?</li>
+				<li>Can I put my #{insert no-SQL data solution here} database on a new-fangled 500Mbps Flash drive X?  Stripped?</li>
+				<li>Total bandwidth?  Peak bandwidth?</li>
+				<li>Net provider redundancy?  Net provider load balancing?</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+<div class="slide">
+	<h1>Present Day</h1>
+
+	<ul class="incremental">
+		<li class="non-incremental">
+			Where is your data?
+			<ul class="incremental">
+				<li>Sorry for the outage, but the server you're on just so happened to also serve a terrorist website and the FBI has claimed it for forensic analysis.</li>
+				<li>Amazon went down again?  And my stuff didn't stay operational even though it was in "the cloud"?</li>
+				<li>Zero-day VT-d vulnerability allows host privilege elevation at ring 0</li>
+				<li>What is my legal recourse if my IP is stolen?  How would I even know it?</li>
+				<li>Can I form a legal agreement with provider X to ensure my compliance with regulation Y?</li>
+				<li>Is my website slow because my code sucks or because I'm on a slow #!@$*( system?</li>
+			</ul>
+		</li>
+		<li>Perhaps for most the benefits outweigh the downsides</li>
+		<li>What's the big deal, didn't we learn our lesson from all the horrible sysops that held our company hostage with their iron fisted control?</li>
+		<li>I would still need to negotiate contracts, security, and SLA for any co-location provider</li>
+	</ul>
+</div>
+
+<div class="slide">
+	<h1>Private Cloud</h1>
+
+	<ul class="incremental">
+		<li class="non-incremental">
+			Eucalyptus (http://www.eucalyptus.com)
+			<ul>
+				<li>Not all components open source (i.e. VMWare)</li>
+				<li>Been around the longest, potentially the most mature</li>
+				<li>Very deep stack that supports HPC clustering like Rocks Cluster (http://www.rocksclusters.org)</li>
+			</ul>
+		</li>
+		<li>
+			OpenStack (http://openstack.org)
+			<ul>
+				<li>Very immature at the initial outset, command-line only</li>
+				<li>Good funding, fast development</li>
+				<li>Keeps changing hands</li>
+				<li>Used to not be a fully open stack but that has changed recently</li>
+			</ul>
+		</li>
+		<li>
+			Cloud.com (http://www.cloud.com)
+			<ul>
+				<li>Best looking, sysadmin friendly web-UI</li>
+				<li>Installation unstable</li>
+				<li>Severe limitations when not using shared storage</li>
+				<li>Now owned by Citrix :(</li>
+			</ul>
+		</li>
+		<li>
+			OpenNebula (http://www.opennebula.org)
+			<ul>
+				<li>Fully open stack</li>
+				<li>Good doumentation, but installation and configuration can get complicated depending on needs</li>
+				<li>Decent web-UI</li>
+				<li>web-UI written in ruby and jquery-ui</li>
+				<li>Powerful hook interfaces</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+<div class="slide">
+	<h1>Private Cloud</h1>
+
+	<ul class="incremental">
+		<li class="non-incremental">
+			Cobbler (https://fedorahosted.org/cobbler)
+			<ul>
+				<li>Not a private cloud system per-se but can compete</li>
+				<li>Works great as a supplement to any private cloud</li>
+				<li>Best open source PXE boot system in existance, EVER</li>
+				<li>Supports kickstarting</li>
+			</ul>
+		</li>
+		<li>
+			Puppet (http://puppetlabs.com)
+			<ul>
+				<li>Enhances private cloud with application provisioning</li>
+				<li>Tries to be object oriented in a non-object oriented way and it doesn't work in many cases</li>
+				<li>On the other hand, it does work</li>
+			</ul>
+		</li>
+		<li>
+			Chef (http://www.opscode.com/chef)
+			<ul>
+				<li>Enhances private cloud with application provisioning</li>
+				<li>People just like it better than Puppet</li>
+				<li>Stability issues between releases</li>
+				<li>UI not payware</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+
+<div class="slide">
+	<h1>Demonstration</h1>
+	<div style="width: 100%; text-align: center; position: absolute; top: 35%;">
+		<div style="width: 335px; height: 300px; overflow: hidden; position: relative; display: inline-block;">
+			<img src="graphics/happy_face_cloud.jpg" width="600" height="600" style="position:absolute; top: -100px; left: -138px;">
+		</div>
+	</div>
+</div>
+
+<div class="slide">
+	<h1>Conclusion</h1>
+
+	<ul class="incremental">
+		<li class="non-incremental">Dev Ops no longer to be taken lightly even in smaller organizations</li>
+		<li>What you need when you're no longer part of the lower common denomenator</li>
+		<li>Take back control of your computing resources</li>
+		<li>Automate, obsolete, keep fully functioning running documentation</li>
+		<li>Overflow as needed</li>
+	</ul>
+</div>
+
+<div class="slide cover title">
+  <!-- hidden style graphics to ensure they are saved with other content -->
+  <img class="hidden" src="graphics/bullet.png" alt="" />
+  <img class="hidden" src="graphics/fold.gif" alt="" />
+  <img class="hidden" src="graphics/unfold.gif" alt="" />
+  <img class="hidden" src="graphics/fold-dim.gif" alt="" />
+  <img class="hidden" src="graphics/nofold-dim.gif" alt="" />
+  <img class="hidden" src="graphics/unfold-dim.gif" alt="" />
+  <img class="hidden" src="graphics/bullet-fold.gif" alt="" />
+  <img class="hidden" src="graphics/bullet-unfold.gif" alt="" />
+  <img class="hidden" src="graphics/bullet-fold-dim.gif" alt="" />
+  <img class="hidden" src="graphics/bullet-nofold-dim.gif" alt="" />
+  <img class="hidden" src="graphics/bullet-unfold-dim.gif" alt="" />
+
+<h1>Austin on Rails: Deploying Rails to your own private cloud with OpenNebula and Cobbler</h1>
+
+<p><a href="">Ethan Waldo</a>
+&lt;<a href="mailto:ewaldo@healthetechs.com">ewaldo@healthetechs.com</a>&gt;<br />
+<br />
+@EthanWaldo
+<br />
+<br />
+</p>
+</div>
+
+</body>
+</html>

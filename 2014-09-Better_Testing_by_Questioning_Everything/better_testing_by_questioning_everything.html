@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# Better Testing By Questioning Everything
+
+## Nathan Ladd
+
+---
+
+class: center, middle
+
+# What is Testing?
+
+---
+
+class: center, middle
+
+Any time you exercise your code *without* intending to derive value from it's intended use, you are probably testing.
+
+In fact, you have *always* been driving your development through tests.
+
+---
+
+class: center, middle
+
+"Nathan, you're being pedantic. We practice Test Driven Development when we drive our development through *automated* tests."
+
+---
+
+class: middle
+
+Fine, but tests only benefit the design of our code if *all* forms of testing drive development. Besides automated regression tests, consider:
+
+1. Automated monitoring
+1. Feature acceptance
+1. Configuration checking
+1. Third party integrations
+1. A/B tests
+
+---
+
+class: center, middle
+
+The requirements that all forms of testing impose on your software *do* lead to more modular, decoupled designs.
+
+---
+
+class: center, middle
+
+However, that's not quite enough to ensure your software will remain inexpensive to maintain going forward.
+
+There are some simple, straightforward approaches to writing automated tests that can increase the likelihood that you produce *maintinable* software.
+---
+
+class: center, middle
+
+## First, start optimizing for reading your tests, not writing them
+
+---
+
+class: middle
+
+### This is optimized for writing:
+
+```ruby
+describe Payment do
+  let(:credit_card) { Fabricate(:credit_card) }
+  let(:processor) { TestPaymentProcessor }
+  let(:payment) { described_class.new(credit_card, amount, processor) }
+
+  # ...
+
+  context "the response" do
+    let(:amount) { 19.95 }
+    subject { payment.response }
+
+    its(:status) { is_expected_to == :success }
+    its(:amount_charged) { is_expected_to == amount }
+  end
+end
+```
+
+#### Can unit tests actually document code better than code does?
+
+---
+
+class: middle, center
+
+## A Unit Test, Revisited
+
+---
+
+class: middle
+
+```ruby
+class PaymentTest < Minitest::Test
+  def test_charging_credit_cards
+    credit_card = CreditCard.new(
+      number: '4444333322221111',
+      expiry: Date.new(2015, 11, 5),
+    )
+
+    payment = Payment.new credit_card, 19.95, TestPaymentProcessor
+    response = payment.charge
+
+    assert_equal :success, response.status
+    assert_equal 19.95, response.amount_charged
+  end
+end
+```
+
+---
+
+class: middle
+
+### Four questions we ask about code we are reading for the first time
+
+1. What does this software do?
+1. What does the software need me to supply in order to run?
+1. How do I invoke the software?
+1. Does it actually work?
+
+---
+
+class: middle
+
+## Four answers that you can find in the test, if you know how to look for it
+
+1. Explain
+1. Setup
+1. Execute
+1. Assert
+
+---
+
+class: middle
+
+```ruby
+class PaymentTest < Minitest::Test
+  # Explain
+  def test_charging_credit_cards
+    # Setup
+:   credit_card = CreditCard.new(
+      number: '4444333322221111',
+      expiry: Date.new(2015, 11, 5),
+    )
+
+    # Execute
+    payment = Payment.new credit_card, 19.95, TestPaymentProcessor
+    response = payment.charge
+
+    # Assert
+    assert_equal :success, response.status
+    assert_equal 19.95, response.amount_charged
+  end
+end
+```
+
+---
+
+class: center, middle
+
+## Essential vs. Accidental Complexity
+
+---
+
+```ruby
+class Payment
+  def self.charge credit_card, amount
+    instance = new credit_card, amount, PaypalGateway, Rails.logger
+    instance.charge
+  end
+
+  attr :credit_card, :amount, :payment_processor, :logger
+
+  def initialize credit_card, amount, payment_processor, logger = Logger.new('/dev/null')
+    @credit_card = credit_card
+    @amount = amount
+    @payment_processor = payment_processor
+    @logger = logger
+  end
+
+  def charge
+    if payment_processor.charge credit_card, amount
+      logger.info "Successfully charged for $#{amount}"
+      PaymentResponse.new :success, amount
+    else
+      logger.info
+      PaymentResponse.new :failed, 0
+    end
+  end
+end
+```
+
+---
+
+class: center, middle
+
+## Question everything
+    </textarea>
+    <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
